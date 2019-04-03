@@ -1,5 +1,6 @@
 from flask import Flask
 import pickle
+import json
 
 X_test=[[6,148,72,35,0,33.6,0.627,50]]
 Y_test=[[1]]
@@ -14,8 +15,10 @@ def health_check():
 
 @app.route('/predict')
 def predict():
+    print(model)
     result = model.score(X_test, Y_test)
-    return result
+    print(result)
+    return json.dumps(result)
     
 
 if __name__ == '__main__':

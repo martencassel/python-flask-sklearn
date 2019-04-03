@@ -21,8 +21,7 @@ RUN apk update && \
     openssl-dev \
     g++ && \
     pip install --no-cache-dir \
-    numpy==1.16.2 \
-#    numpy==1.14.2 \
+    numpy==1.14.2 \
     scipy==1.0.1 \
     scikit-learn==0.19.1 \
     pandas==0.22.0 \
@@ -37,9 +36,6 @@ WORKDIR /usr/src/app
 
 #RUN apk update && apk add gcc gfortran musl-dev freetype-dev
 
-COPY requirements.txt ./
-RUN pip install --no-cache-dir -r requirements.txt
-
 COPY . .
 
-CMD [ "python", "app.py" ]
+CMD [ "python", "model.py" ]
